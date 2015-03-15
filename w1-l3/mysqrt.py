@@ -1,12 +1,13 @@
 import numpy as np
 
-s = 1
-x = 2
+s = 500
+x = 1000000
+kmax = 6
 
-for k in range(6):
+for k in range(kmax):
+    print "Before iteration %s, s= %s" %(k,s)
     s = 0.5 * (s + x/s)
-    print s 
 
-print s
+print "After %s iterations, s = %s" %(kmax,s)
 
 
