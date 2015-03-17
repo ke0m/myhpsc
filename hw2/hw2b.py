@@ -40,7 +40,7 @@ def quad_interp(xi, yi, debug=False):
     fig.add_subplot(ax)
 
     ax.plot(xi, yi, 'ro')
-    ax.axis([-10,10,-10,10])
+    #ax.axis([xi.min(),xi.max(),yi.min(),yi.max()])
 
     for direction in ["xzero", "yzero"]:
         ax.axis[direction].set_axisline_style("-|>")
@@ -64,10 +64,10 @@ def quad_interp(xi, yi, debug=False):
         print c
 
     #plotting the interpolated points
-    xo = np.linspace(-10, 10, 21)
-    yo = np.zeros(21)
-    for i in range(21):
-        yo[i] = c[0] + c[1]*(i-10) + c[2]*(i-10)**2
+    xo = np.linspace(xi.min()-1, xi.max()+1, 1000)
+    yo = np.zeros(1000)
+    for i in range(1000):
+        yo[i] = c[0] + c[1]*(xo[i]) + c[2]*(xo[i])**2
 
     ax.plot(xo, yo, 'b')
     
@@ -76,6 +76,20 @@ def quad_interp(xi, yi, debug=False):
     plt.show()
 
     return c
+
+def plot_quad(c):
+
+def cubic_interp(xi, yi, debug=False):
+
+    return c
+
+def plot_cubic(c):
+
+def poly_interp(xi, yi, debug=False):
+
+    return c
+
+def plot_poly(c):
 
 def test_quad1():
     """ 
@@ -90,6 +104,28 @@ def test_quad1():
     # test that all elements have small error:
     assert np.allclose(c, c_true), \
         "Incorrect result, c = %s, Expected: c = %s" % (c,c_true)
+
+def test_quad2():
+    """
+    Test code, no return value or exception if test runs properly.
+    Still working on a test here...
+    An idea is to compare it with an interpolation function
+    from scipy
+    """
+    xi = np.array([-1.,  0.,  2.])
+    yi = np.array([ 1., -1.,  7.])
+    c = quad_interp(xi,yi)
+    c_true = np.array([-1.,  0.,  2.])
+    print "c =      ", c
+    print "c_true = ", c_true
+    # test that all elements have small error:
+    assert np.allclose(c, c_true), \
+        "Incorrect result, c = %s, Expected: c = %s" % (c,c_true)
+
+def test_cubic():
+
+def test_poly():
+
 
 if __name__=="__main__":
     # "main program"
