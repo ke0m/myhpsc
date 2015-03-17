@@ -34,21 +34,6 @@ def quad_interp(xi, yi, debug=False):
     n = len(xi)
     m = 3
 
-    #plotting the input points
-    fig = plt.figure(1)
-    ax = SubplotZero(fig, 111)
-    fig.add_subplot(ax)
-
-    ax.plot(xi, yi, 'ro')
-    #ax.axis([xi.min(),xi.max(),yi.min(),yi.max()])
-
-    for direction in ["xzero", "yzero"]:
-        ax.axis[direction].set_axisline_style("-|>")
-        ax.axis[direction].set_visible(True)
-
-    for direction in ["left", "right", "bottom", "top"]:
-        ax.axis[direction].set_visible(False)
-
     #Constructing A
 
     A = np.zeros([n,m]) #takes a list as input
@@ -63,6 +48,23 @@ def quad_interp(xi, yi, debug=False):
         print A
         print c
 
+    return c
+
+def plot_quad(xi,yi,c):
+    #plotting the input points
+    fig = plt.figure(1)
+    ax = SubplotZero(fig, 111)
+    fig.add_subplot(ax)
+
+    ax.plot(xi, yi, 'ro')
+
+    for direction in ["xzero", "yzero"]:
+        ax.axis[direction].set_axisline_style("-|>")
+        ax.axis[direction].set_visible(True)
+
+    for direction in ["left", "right", "bottom", "top"]:
+        ax.axis[direction].set_visible(False)
+
     #plotting the interpolated points
     xo = np.linspace(xi.min()-1, xi.max()+1, 1000)
     yo = np.zeros(1000)
@@ -72,24 +74,78 @@ def quad_interp(xi, yi, debug=False):
     ax.plot(xo, yo, 'b')
     
     plt.title("Data points and interpolating polynomial")
-    plt.savefig('hw2b.png')
+    plt.savefig('quadratic.png')
     plt.show()
 
-    return c
-
-def plot_quad(c):
-
 def cubic_interp(xi, yi, debug=False):
+    """
+    Cubic interpolation.  Compute the coefficients of the polynomial
+    interpolating the points (xi[i],yi[i]) for i = 0,1,2.
+    Returns c, an array containing the coefficients of
+      p(x) = c[0] + c[1]*x + c[2]*x**2 + c[3]*x**3
+    """
+
+    # check inputs and print error message if not valid:
+
+    error_message = "xi and yi should have type numpy.ndarray"
+    assert (type(xi) is np.ndarray) and (type(yi) is np.ndarray), error_message
+
+    error_message = "xi and yi should have length 3"
+    assert len(xi)==4 and len(yi)==4, error_message
+
+    #dimensions of matrix
+    n = len(xi)
+    m = 4
+
+    #Constructing A
+
+    A = np.zeros([n,m]) #takes a list as input
+    for i in range(n):
+        A[i][0] = 1
+        A[i][1] = xi[i]
+        A[i][2] = xi[i]**2
+        A[i][3] = xi[i]**3
+
+    c = la.solve(A,yi)
+
+    if debug==True:
+        print A
+        print c
 
     return c
 
-def plot_cubic(c):
+def plot_cubic(xi,yi,c):
+    #plotting the input points
+    fig = plt.figure(1)
+    ax = SubplotZero(fig, 111)
+    fig.add_subplot(ax)
+
+    ax.plot(xi, yi, 'ro')
+
+    for direction in ["xzero", "yzero"]:
+        ax.axis[direction].set_axisline_style("-|>")
+        ax.axis[direction].set_visible(True)
+
+    for direction in ["left", "right", "bottom", "top"]:
+        ax.axis[direction].set_visible(False)
+
+    #plotting the interpolated points
+    xo = np.linspace(xi.min()-1, xi.max()+1, 1000)
+    yo = np.zeros(1000)
+    for i in range(1000):
+        yo[i] = c[0] + c[1]*(xo[i]) + c[2]*(xo[i])**2 + c[3]*(xo[i])**3
+
+    ax.plot(xo, yo, 'b')
+    
+    plt.title("Data points and interpolating polynomial")
+    plt.savefig('cubic.png')
+    plt.show()
 
 def poly_interp(xi, yi, debug=False):
-
     return c
 
 def plot_poly(c):
+    print test
 
 def test_quad1():
     """ 
@@ -123,8 +179,21 @@ def test_quad2():
         "Incorrect result, c = %s, Expected: c = %s" % (c,c_true)
 
 def test_cubic():
+    """ 
+    Test code, no return value or exception if test runs properly.
+    """
+    xi = np.array([-1.,  0.,  2., 3.])
+    yi = np.array([ 1., -1.,  7., 8.])
+    c = cubic_interp(xi,yi)
+    c_true = np.array([-1.,  1.5,  2.75, -0.75])
+    print "c =      ", c
+    print "c_true = ", c_true
+    # test that all elements have small error:
+    assert np.allclose(c, c_true), \
+        "Incorrect result, c = %s, Expected: c = %s" % (c,c_true)
 
 def test_poly():
+    print test
 
 
 if __name__=="__main__":
