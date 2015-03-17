@@ -1,3 +1,8 @@
+"""
+Demonstration script for quadratic interpolation
+Created by Joseph Jennings
+Source(s): http://faculty.washington.edu/rjl/uwhpsc-coursera/homework2.html#homework2
+"""
 import numpy as np
 from mpl_toolkits.axes_grid.axislines import SubplotZero
 from matplotlib import pyplot as plt
@@ -17,7 +22,6 @@ ax = SubplotZero(fig, 111)
 fig.add_subplot(ax)
 
 ax.plot(xi, yi, 'ro')
-ax.axis([-10,10,-10,10])
 
 for direction in ["xzero", "yzero"]:
     ax.axis[direction].set_axisline_style("-|>")
@@ -25,6 +29,7 @@ for direction in ["xzero", "yzero"]:
 
 for direction in ["left", "right", "bottom", "top"]:
     ax.axis[direction].set_visible(False)
+
 
 #Constructing A
 
@@ -41,12 +46,16 @@ c = la.solve(A,yi)
 #print c
 
 #plotting the interpolated points
-xo = np.linspace(-10, 10, 21)
-yo = np.zeros(21)
-for i in range(21):
-    yo[i] = c[0] + c[1]*(i-10) + c[2]*(i-10)**2
+xo = np.linspace(xi.min()-1, xi.max()+1, 1000)
+yo = np.zeros(1000)
+for i in range(1000):
+    yo[i] = c[0] + c[1]*(xo[i]) + c[2]*(xo[i])**2
 
 ax.plot(xo, yo, 'b')
-
+    
+plt.title("Data points and interpolating polynomial")
 plt.savefig('hw2a.png')
 plt.show()
+
+
+
