@@ -5,9 +5,11 @@ def fvals_sqrt(x):
     Returns the values of f(x) = x**2 - a
     and its derivative for any input x
     """
+    from numpy import sin, cos
     fx  = x**2 - 4.
     fpx = 2.*x
     return fx, fpx
+
 
 def solve(fvals_sqrt, x0, debug=False):
     """
@@ -19,11 +21,14 @@ def solve(fvals_sqrt, x0, debug=False):
         debug_solve - a debug flag whether to print intermediate values
     """
     maxiter = 20
+    #import pdb; pdb.set_trace()
     fx, fpx = fvals_sqrt(x0) 
     if(debug == True):
         print "Initial guess: x = %22.15e" %(x0)
     xk = x0 - fx/fpx #testing the initial guess
+    
     for i in range(maxiter):
+        fx, fpx = fvals_sqrt(xk)
         xk = xk - fx/fpx
         if(debug == True and i>0):
             print "After %i iterations, x = %22.15e" % (i, xk)
@@ -54,6 +59,3 @@ def test1(debug_solve=False):
         fx,fpx = fvals_sqrt(x)
         print "the value of f(x) is %22.15e" % fx
         assert abs(x-2.) < 1e-14, "*** Unexpected result: x = %22.15e"  % x
-
-
-
