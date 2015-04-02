@@ -7,7 +7,7 @@ program intersections
 
   implicit none
   real(kind=8) :: x0, fx
-  real(kind=8) :: x(4), x0vals(4)
+  real(kind=8) :: x(4), y(4), x0vals(4)
   integer :: iters, i
   logical :: debug = .false.
 
@@ -18,7 +18,8 @@ program intersections
     x0 = x0vals(i)
     print *, ' '
     call solve(g1_g2, g1_g2_prime, x0, x(i), iters, debug)
-    print *, 'With initial guess x0 = ', x0, ' solve returns x = ', x(i), 'after ', iters, ' iterations.'
+    y(i) = g1(x(i))
+    print *, 'With initial guess x0 = ', x0, ' solve returns (x,y) = ', x(i), ',', y(i), ' after ', iters, ' iterations.'
     !print 11, x0, x(i), iters
     !11 format('With initial guess x0 = ', e40.15, ' solve returns x = ', e20.15, ' after ' i3 ' iterations.')
   enddo
