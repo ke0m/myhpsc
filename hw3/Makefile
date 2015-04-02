@@ -19,7 +19,7 @@ test1: test1.exe
 
 # The first line checks to see if the files are up to date
 # if they are not, then it will create the files that are not
-# up to date by executing the commands on lines 18-20
+# up to date by executing the commands on lines 
 test1.exe: $(MODULES) $(OBJECTS) 
 	gfortran $(FFLAGS) $(OBJECTS) -o test1.exe
 
