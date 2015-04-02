@@ -39,6 +39,7 @@ pi2 = xr[1]*np.cos(np.pi*xr[1])
 pi3 = xr[2]*np.cos(np.pi*xr[2])
 pi4 = xr[3]*np.cos(np.pi*xr[3])
 
+#Plotting the result
 blue, = plt.plot(x,g1,'b',label='g1')
 red, = plt.plot(x,g2,'r',label='g2')
 plt.legend(handles=[blue,red])
@@ -48,6 +49,10 @@ plt.plot(xr[2],pi3,'ko')
 plt.plot(xr[3],pi4,'ko')
 plt.xlim((-5,5))
 plt.ylim((-5,5))
+
+# TODO: Create intersections.png
+
+plt.savefig('intersections.png')
 
 plt.show()
 
