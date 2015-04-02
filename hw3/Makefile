@@ -6,7 +6,7 @@ MODULES  = functions.mod newton.mod
 
 FFLAGS = -g
 
-.PHONY: test1 clean
+.PHONY: intersections test1 clean
 
 intersections: intersections.exe
 	./intersections.exe

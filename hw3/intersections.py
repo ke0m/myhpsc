@@ -50,8 +50,6 @@ plt.plot(xr[3],pi4,'ko')
 plt.xlim((-5,5))
 plt.ylim((-5,5))
 
-# TODO: Create intersections.png
-
 plt.savefig('intersections.png')
 
 plt.show()
