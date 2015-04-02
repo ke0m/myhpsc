@@ -22,13 +22,14 @@ def solve(fvals_sqrt, x0, debug=False):
     """
     maxiter = 20
     #import pdb; pdb.set_trace()
-    fx, fpx = fvals_sqrt(x0) 
     if(debug == True):
         print "Initial guess: x = %22.15e" %(x0)
+
+    fx, fpx = fvals_sqrt(x0) 
     xk = x0 - fx/fpx #testing the initial guess
-    
+
+    fx, fpx = fvals_sqrt(xk)
     for i in range(maxiter):
-        fx, fpx = fvals_sqrt(xk)
         xk = xk - fx/fpx
         if(debug == True and i>0):
             print "After %i iterations, x = %22.15e" % (i, xk)
@@ -59,3 +60,4 @@ def test1(debug_solve=False):
         fx,fpx = fvals_sqrt(x)
         print "the value of f(x) is %22.15e" % fx
         assert abs(x-2.) < 1e-14, "*** Unexpected result: x = %22.15e"  % x
+
