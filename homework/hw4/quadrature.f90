@@ -35,19 +35,27 @@ module quadrature
       integer, dimension(:), intent(in) :: nvals
       real(kind=8) :: int_trap,error,ratio, last_error
       integer :: i, iend, n
+      ! Variables for timing
+      real(kind=8) :: t1, t2, elapsed_time
+      integer(kind=8) :: tclock1, tclock2, clock_rate
       last_error = 0
       iend = size(nvals)
 
-      print *, "      n       trapezoid            error        ratio"
+      print *, "      n       trapezoid            error        ratio     cpu time  elapsed time"
 
       do i=1,iend
         n = nvals(i)
+        call system_clock(tclock1)
+        call cpu_time(t1)
         int_trap = trapezoid(f,a,b,n)
+        call cpu_time(t2)
+        call system_clock(tclock2,clock_rate)
         error = abs(int_trap - int_true)
         ratio = last_error/error
         last_error = error
-        print 11, n, int_trap, error, ratio
-        11 format(i8, es22.14, es13.3, es13.3)
+        elapsed_time = float(tclock2 - tclock1)/float(clock_rate)
+        print 11, n, int_trap, error, ratio, t2-t1, elapsed_time
+        11 format(i8, es22.14, es13.3, es13.3,f12.8,f12.8)
       enddo
 
     end subroutine error_table
