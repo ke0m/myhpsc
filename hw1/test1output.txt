@@ -1,6 +1,0 @@
-Code run by Joseph Jennings
-Environment variable UWHPSC is /home/joe/dev/hpc_class/uwhpsc
-Environment variable MYHPSC is /home/joe/dev/hpc_class/myhpsc
-Imported numpy ok
-Imported matplotlib ok
-Imported pylab ok
