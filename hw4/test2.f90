@@ -1,6 +1,5 @@
 ! $MYHPSC/hw4/test2.f90
 
-
 program test2
 
     use quadrature, only: trapezoid, error_table
