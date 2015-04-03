@@ -2,7 +2,6 @@
 
 module quadrature
 
-  
   contains
 
     real(kind=8) function trapezoid(f,a,b,n)
