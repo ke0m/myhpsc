@@ -1,0 +1,5 @@
+TO RUN:
+
+1. Compile with mpif90
+2. If you want to run with four processors, then you could for example:
+    mpiexec -n 4 a.out
