@@ -2,10 +2,11 @@
 
 module quadrature
 
-
+  
   contains
 
     real(kind=8) function trapezoid(f,a,b,n)
+
       implicit none
       real(kind=8), external :: f
       real(kind=8), intent(in) :: a, b
@@ -22,6 +23,7 @@ module quadrature
         fsum = fsum + fj(i)
       enddo
       trapezoid = h*fsum - 0.5*h*(fj(1) + fj(n)) 
+      !print *, 'trapezoid=', trapezoid, ' h=', h, ' fsum=', fsum, ' fj(1)=', fj(1), ' fj(n)=', fj(n)
 
     end function trapezoid
 
