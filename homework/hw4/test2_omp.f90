@@ -9,7 +9,8 @@ program test2_omp
     integer, parameter :: length = 25
     integer :: nvals(length), i
     real(kind=8) :: k
-    !$ call omp_set_num_threads(4)
+    integer :: num_threads = 4
+    !$ call omp_set_num_threads(num_threads)
     a = 0.d0
     b = 2.d0
     k = 1000
@@ -17,6 +18,7 @@ program test2_omp
 
     print 10, int_true
  10 format("true integral: ", es22.14)
+    !$ print *, "Using ", num_threads, " threads"
     print *, " "  ! blank line
 
     ! values of n to test:
