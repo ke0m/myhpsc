@@ -7,7 +7,7 @@ MODULES    = quadrature.mod
 MODULESO   = quadrature_omp.mod
 
 
-FFLAGS = -fopenmp
+FFLAGS = -O3 -fopenmp
 
 .PHONY: test1 test2 test2_omp clean
 
