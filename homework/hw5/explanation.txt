@@ -71,4 +71,60 @@ The reason as to why the work is noy distributed uniformly among threads is beca
 others do calculations for small n (e.g. thread 0) that do not require so many calculations. Therefore, thread 0 is finishing far quicker than thread 3.
 
 
+8. The reason for which this works best is best explained with the aid of the following tables. This first table is for the original loop ordering:
+
+       n         approximation        error       ratio    thread num
+      50  6.01762134207395E+00    6.387E-04    0.000E+00       1
+     400  5.99537682567465E+00    5.991E-03    0.000E+00       3
+     200  5.99537682567465E+00    3.488E-03    0.000E+00       3
+     100  6.00057196798962E+00    1.625E-02    8.029E-01       0
+     800  6.00057196798962E+00    7.955E-04    8.029E-01       0
+    1600  6.00118591794817E+00    1.815E-04    3.300E+01       3
+    3200  6.00132301603504E+00    4.444E-05    7.849E+01       1
+    6400  6.00135640717688E+00    1.105E-05    1.471E+03       2
+   12800  6.00136470029559E+00    2.759E-06    2.883E+02       0
+   25600  6.00136677000212E+00    6.895E-07    2.633E+02       3
+   51200  6.00136728718236E+00    1.724E-07    2.578E+02       1
+  102400  6.00136741645906E+00    4.309E-08    2.565E+02       2
+  
+Elapsed time =   0.00687292 seconds
+CPU time =   0.01986000 seconds
+fevals by thread  0:         13650   6.66666667%
+fevals by thread  1:         54600  26.66666667%
+fevals by thread  2:        108900  53.18681319%
+fevals by thread  3:         27600  13.47985348%
+
+In this case, I beleive that the threads act as such: they attempt to all work together to read the first values in the nvals array (starting with 50, 100, 200, ...). When finally they have computed
+the integral for each of the smaller nvals, two threads are stuck working on the final values. For example, in the table above, thread 2 computes the integral for n=6400 as well as n=102400. Also,
+thread 1 mmust compute for n=50,3200,51200. The threads that have this scheduling will always do more work as they will do the most work by computing the final two nvals as well as additional 
+nvals.
+
+
+Here is the decreasing loop ordering:
+
+      n         approximation        error       ratio    thread num
+   12800  6.00136470029559E+00    2.759E-06    0.000E+00       3
+    6400  6.00135640717688E+00    1.105E-05    2.497E-01       3
+   25600  6.00136677000212E+00    6.895E-07    0.000E+00       2
+    1600  6.00118591794817E+00    1.815E-04    3.798E-03       2
+     800  6.00057196798962E+00    7.955E-04    2.282E-01       2
+    3200  6.00132301603504E+00    4.444E-05    2.487E-01       3
+     400  5.99537682567465E+00    5.991E-03    1.328E-01       2
+     200  5.99787907396672E+00    3.488E-03    3.686E-01       2
+     100  6.01762134207395E+00    1.625E-02    5.462E+00       3
+      50  6.00200615142457E+00    6.387E-04    5.462E+00       3
+   51200  6.00136728718236E+00    1.724E-07    0.000E+00       1
+  102400  6.00136741645906E+00    4.309E-08    0.000E+00       0
+  
+Elapsed time =   0.01624189 seconds
+CPU time =   0.06008500 seconds
+fevals by thread  0:        102400  50.01221001%
+fevals by thread  1:         51200  25.00610501%
+fevals by thread  2:         28500  13.91941392%
+fevals by thread  3:         22650  11.06227106%
+Total number of fevals:     204750
+
+
+In this case, it is somewhat better, because we can assign two threads two work on the largest nvals (the ones that require the most work) and while these two work on these integrations, the remaining
+two threads can work on the smaller values. This makes the work distribution more uniform (but still not that close to perfect) as can be seen by the computed percentages.
 
