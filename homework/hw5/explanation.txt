@@ -1,0 +1,74 @@
+6. The reason for which the ratio value in the parallel version does not agree with the serial version is because of the first private declaration of last_error. When each thread reads this variable
+for the first time, it will read a value of zero while it has already been computed. Because it is private (and being first private makes it 0) we cannot share it from thread to thread, which needs
+to be done for this variable. This though would make it impossible for it to be computed correctly as threads would be writing over it and reading incorrect values. An easy way to see this is to notice
+in the table below that each time a new thread starts, the value it writes out for ratio is 0 (the value of last_error for the first iteration). 
+
+I am starting to doubt this from other outputs I have seen. One thing that would cause the ratio calculation to fail is the fact that the ratio is supposed to increase based on the previous calculation.
+If the calculations are not done in order, then there is no way to ensure this.
+
+
+Another thought: Perhaps, the ratio value is read correctly as is seen in the table below from thread 1:
+
+
+./test3.exe
+Using  4 threads
+true integral:   6.00136745954910E+00
+  
+       n         approximation        error       ratio    thread num
+      50  6.00200615142457E+00    6.387E-04    0.000E+00       0
+     400  5.99537682567465E+00    5.991E-03    3.929E-02       0
+     100  6.01762134207395E+00    1.625E-02    3.929E-02       0
+     200  5.99787907396672E+00    3.488E-03    4.659E+00       0
+     800  6.00057196798962E+00    7.955E-04    7.531E+00       1
+    3200  6.00132301603504E+00    4.444E-05    0.000E+00       2
+    1600  6.00118591794817E+00    1.815E-04    4.382E+00       1
+    6400  6.00135640717688E+00    1.105E-05    4.021E+00       2
+   12800  6.00136470029559E+00    2.759E-06    4.006E+00       2
+   25600  6.00136677000212E+00    6.895E-07    0.000E+00       3
+   51200  6.00136728718236E+00    1.724E-07    4.000E+00       3
+  102400  6.00136741645906E+00    4.309E-08    4.000E+00       3
+  
+Elapsed time =   0.01029923 seconds
+CPU time =   0.01868800 seconds
+fevals by thread  0:           350
+fevals by thread  1:          2800
+fevals by thread  2:         22400
+fevals by thread  3:        179200
+Total number of fevals:     204750
+
+
+./test.exe
+Using  4 threads
+true integral:   6.00136745954910E+00
+  
+       n         approximation        error       ratio
+      50  6.00200615142457E+00    6.387E-04    0.000E+00
+     100  6.01762134207395E+00    1.625E-02    3.929E-02
+     200  5.99787907396672E+00    3.488E-03    4.659E+00
+     400  5.99537682567465E+00    5.991E-03    5.823E-01
+     800  6.00057196798962E+00    7.955E-04    7.531E+00
+    1600  6.00118591794817E+00    1.815E-04    4.382E+00
+    3200  6.00132301603504E+00    4.444E-05    4.085E+00
+    6400  6.00135640717689E+00    1.105E-05    4.021E+00
+   12800  6.00136470029558E+00    2.759E-06    4.006E+00
+   25600  6.00136677000209E+00    6.895E-07    4.002E+00
+   51200  6.00136728718235E+00    1.724E-07    4.000E+00
+  102400  6.00136741645906E+00    4.309E-08    4.000E+00
+
+Elapsed time =   0.01075204 seconds
+CPU time =   0.03467000 seconds
+fevals by thread  0:         51211
+fevals by thread  1:         51187
+fevals by thread  2:         51176
+fevals by thread  3:         51176
+Total number of fevals:     204750
+
+
+An idea as to why this worked is that perhaps before thread 1 could the private version of last error, it read the value written to it by thread 0 which completed before thread 1 could read.
+
+
+The reason as to why the work is noy distributed uniformly among threads is because, some threads do the calculations for larger n (e.g. thread 3) that require a large number of function calls whereas 
+others do calculations for small n (e.g. thread 0) that do not require so many calculations. Therefore, thread 0 is finishing far quicker than thread 3.
+
+
+
