@@ -1,4 +1,4 @@
-! $MYHPSC/homeworks/test2.f90
+! $MYHPSC/homeworks/quadrature2.f90
 
 module quadrature2
 
