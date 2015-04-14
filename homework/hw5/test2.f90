@@ -1,5 +1,4 @@
-! $MYHPSC/homeworks/hw5/test.f90
-
+! $MYHPSC/homeworks/hw5/test2.f90
 
 program test2
 
