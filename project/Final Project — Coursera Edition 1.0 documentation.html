@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Final Project — Coursera Edition 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="Final%20Project%20%E2%80%94%20Coursera%20Edition%201.0%20documentation_files/default.css" type="text/css">
+    <link rel="stylesheet" href="Final%20Project%20%E2%80%94%20Coursera%20Edition%201.0%20documentation_files/pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="Final%20Project%20%E2%80%94%20Coursera%20Edition%201.0%20documentation_files/jquery.js"></script>
+    <script type="text/javascript" src="Final%20Project%20%E2%80%94%20Coursera%20Edition%201.0%20documentation_files/underscore.js"></script>
+    <script type="text/javascript" src="Final%20Project%20%E2%80%94%20Coursera%20Edition%201.0%20documentation_files/doctools.js"></script>
+    <script type="text/javascript" src="Final%20Project%20%E2%80%94%20Coursera%20Edition%201.0%20documentation_files/MathJax.js"></script>
+    <link rel="author" title="About these documents" href="http://faculty.washington.edu/rjl/uwhpsc-coursera/about.html">
+    <link rel="top" title="Coursera Edition 1.0 documentation" href="http://faculty.washington.edu/rjl/uwhpsc-coursera/index.html"> 
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">.MathJax_Preview .MJXc-math {color: inherit!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXc-script {font-size: .8em}
+.MJXc-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXc-bold {font-weight: bold}
+.MJXc-italic {font-style: italic}
+.MJXc-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXc-largeop {font-size: 150%}
+.MJXc-largeop.MJXc-int {vertical-align: -.2em}
+.MJXc-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXc-display {display: block; text-align: center; margin: 1em 0}
+.MJXc-math span {display: inline-block}
+.MJXc-box {display: block!important; text-align: center}
+.MJXc-box:after {content: " "}
+.MJXc-rule {display: block!important; margin-top: .1em}
+.MJXc-char {display: block!important}
+.MJXc-mo {margin: 0 .15em}
+.MJXc-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXc-denom {display: inline-table!important; width: 100%}
+.MJXc-denom > * {display: table-row!important}
+.MJXc-surd {vertical-align: top}
+.MJXc-surd > * {display: block!important}
+.MJXc-script-box > *  {display: table!important; height: 50%}
+.MJXc-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXc-script-box > *:last-child > * {vertical-align: bottom}
+.MJXc-script-box > * > * > * {display: block!important}
+.MJXc-mphantom {visibility: hidden}
+.MJXc-munderover {display: inline-table!important}
+.MJXc-over {display: inline-block!important; text-align: center}
+.MJXc-over > * {display: block!important}
+.MJXc-munderover > * {display: table-row!important}
+.MJXc-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXc-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXc-mtr {display: table-row!important}
+.MJXc-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXc-mtr > .MJXc-mtd:first-child {padding-left: 0}
+.MJXc-mtr:first-child > .MJXc-mtd {padding-top: 0}
+.MJXc-mlabeledtr {display: table-row!important}
+.MJXc-mlabeledtr > .MJXc-mtd:first-child {padding-left: 0}
+.MJXc-mlabeledtr:first-child > .MJXc-mtd {padding-top: 0}
+.MJXc-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXc-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXc-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXc-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXc-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXc-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXc-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXc-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXc-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXc-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXc-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_CHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  <body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div style="display: none;" id="MathJax_Message"></div>
+
+<div style="background-color: #F0D576; text-align: left; padding: 10px 10px 15px 15px">
+<table>
+<tbody><tr>
+<td>
+<a href="http://www.amath.washington.edu/"><img src="Final%20Project%20%E2%80%94%20Coursera%20Edition%201.0%20documentation_files/uwamath.gif" alt="UW AMath" border="0"></a>
+</td>
+<td>
+<font size="5"> High Performance Scientific Computing</font>
+<br>&nbsp;<br>
+<font size="5"> Coursera Edition</font>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="http://faculty.washington.edu/rjl/uwhpsc-coursera/genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li><a href="http://faculty.washington.edu/rjl/uwhpsc-coursera/index.html"><font color="#39275b">Contents</font></a>|&nbsp;</li>
+        <li><a href="http://faculty.washington.edu/rjl/uwhpsc-coursera/biblio.html"><font color="#39275b">Bibliography</font></a>|&nbsp;</li>
+
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="http://faculty.washington.edu/rjl/uwhpsc-coursera/index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Final Project</a><ul>
+<li><a class="reference internal" href="#when-finished">When finished</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="http://faculty.washington.edu/rjl/uwhpsc-coursera/_sources/project.txt" rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input name="q" type="text">
+      <input value="Go" type="submit">
+      <input name="check_keywords" value="yes" type="hidden">
+      <input name="area" value="default" type="hidden">
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="final-project">
+<span id="project"></span><h1>Final Project<a class="headerlink" href="#final-project" title="Permalink to this headline">¶</a></h1>
+<p>The goals of this project are to:</p>
+<ul class="simple">
+<li>Get some more experience with MPI and the master-worker paradigm.</li>
+<li>Learn about Monte Carlo methods and random number generators.</li>
+<li>Get experience computing in Fortran and plotting results in Python.</li>
+</ul>
+<p>See also:</p>
+<ul class="simple">
+<li><a class="reference internal" href="http://faculty.washington.edu/rjl/uwhpsc-coursera/random.html#random"><em>Random number generators</em></a></li>
+<li><a class="reference internal" href="http://faculty.washington.edu/rjl/uwhpsc-coursera/poisson.html#poisson"><em>Numerical methods for the Poisson problem</em></a></li>
+</ul>
+<p>Create a new subdirectory <cite>project</cite> in your repository for the codes you
+create.</p>
+<p><strong>PART 1</strong></p>
+<p>Create a subdirectory <cite>project/part1</cite> for this part.</p>
+<blockquote>
+<div><p>In the last part of <a class="reference internal" href="http://faculty.washington.edu/rjl/uwhpsc-coursera/homework6.html#homework6"><em>Homework 6</em></a>, you wrote an MPI code to compute
+a Trapezoid approximation to an integral by splitting the original
+interval up into <cite>nsub = num_procs - 1</cite> subintervals. The master Process
+0 farmed these out to the remaining processes and collected the results.</p>
+<p>Modify your code to make a new version <cite>test3.f90</cite>
+that allows nsub to be set to a value larger (or smaller) than
+<cite>num_procs - 1</cite>.  In this case the master process should send out
+subintervals to the worker processes until all the work is done.  This
+will require doing something similar to what is done in the sample code
+<cite>$UWHPSC/codes/mpi/matrix1norm2.f90</cite> to keep track of which subintervals
+have been handled.</p>
+<p>Have Process 0 read in the number of subintervals with the lines:</p>
+<div class="highlight-python"><pre>print *, "How many subintervals? "
+read *, nsub</pre>
+</div>
+<p>and then broadcast this value to the other processes.</p>
+<p>Test that your code works both when the number of subintervals is
+smaller or larger than the number of processes specified with <cite>mpiexec</cite>.</p>
+<p>If the code is run with a single process then it should halt with an
+error message (since there are no workers to compute the integral over
+subintervals in this case).</p>
+<p>Provide a <cite>Makefile</cite> that compiles using <cite>mpif90</cite> and runs the code by
+default with 4 processes, as in Homework 6.</p>
+<p><strong>Sample output</strong></p>
+<p>Your code should produce output similar to this, for example...</p>
+<div class="highlight-python"><pre>$ make test3
+mpif90  -c  functions.f90
+mpif90  -c  quadrature.f90
+mpif90  -c  test3.f90
+mpif90  functions.o quadrature.o test3.o -o test3.exe
+mpiexec -n 4    test3.exe
+Using   4 processes
+ How many subintervals?
+2
+true integral:   6.00136745954910E+00
+
+fevals by Process  0:             0
+fevals by Process  1:          1000
+fevals by Process  2:          1000
+fevals by Process  3:             0
+Trapezoid approximation with     2000 total points:   6.00125232481036E+00
+Total number of fevals:       2000
+
+
+
+$ make test3
+mpiexec -n 4    test3.exe
+Using   4 processes
+ How many subintervals?
+7
+true integral:   6.00136745954910E+00
+
+fevals by Process  0:             0
+fevals by Process  1:          3000
+fevals by Process  2:          2000
+fevals by Process  3:          2000
+Trapezoid approximation with     7000 total points:   6.00135820753458E+00
+Total number of fevals:       7000
+
+
+$ make test3 NUM_PROCS=1
+mpiexec -n 1 test3.exe
+ *** Error: need to use at least two processes</pre>
+</div>
+</div></blockquote>
+<p><strong>PART 2</strong></p>
+<p>Create a subdirectory <cite>project/part2</cite> for this part.</p>
+<blockquote>
+<div><p>Monte Carlo methods are often used to estimate the values of definite
+integrals in high dimensional spaces since traditional quadrature
+methods based on regular grids may require too many points.</p>
+<p>The files in <cite>$UWHPSC/codes/project/part2</cite> contain much of what is
+needed to experiment with a Monte Carlo approximation to the integral</p>
+<p><span class="math"><span style="color: inherit;" class="MathJax_Preview"></span><span style="" id="MathJax-Element-1-Frame" class="MathJax"><nobr><span style="width: 26.375em; display: inline-block;" role="math" id="MathJax-Span-1" class="math"><span style="display: inline-block; position: relative; width: 19.968em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.466em, 1000em, 3.266em, -1000em); top: -2.652em; left: 0em;"><span id="MathJax-Span-2" class="mrow"><span id="MathJax-Span-3" class="msubsup"><span style="display: inline-block; position: relative; width: 1.383em; height: 0px;"><span style="position: absolute; clip: rect(3.036em, 1000em, 4.472em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Size1; vertical-align: 0em;" id="MathJax-Span-4" class="mo">∫<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.138em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.351em, 1000em, 4.273em, -1000em); top: -4.537em; left: 0.701em;"><span id="MathJax-Span-5" class="texatom"><span id="MathJax-Span-6" class="mrow"><span id="MathJax-Span-7" class="msubsup"><span style="display: inline-block; position: relative; width: 0.606em; height: 0px;"><span style="position: absolute; clip: rect(3.351em, 1000em, 4.174em, -1000em); top: -4.004em; left: 0em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-8" class="mi">b</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.898em; left: 0.303em;"><span style="font-size: 50%; font-family: MathJax_Main;" id="MathJax-Span-9" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.53em, 1000em, 4.273em, -1000em); top: -3.663em; left: 0.472em;"><span id="MathJax-Span-10" class="texatom"><span id="MathJax-Span-11" class="mrow"><span id="MathJax-Span-12" class="msubsup"><span style="display: inline-block; position: relative; width: 0.677em; height: 0px;"><span style="position: absolute; clip: rect(3.53em, 1000em, 4.174em, -1000em); top: -4.004em; left: 0em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-13" class="mi">a</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.898em; left: 0.374em;"><span style="font-size: 50%; font-family: MathJax_Main;" id="MathJax-Span-14" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="padding-left: 0.167em;" id="MathJax-Span-15" class="msubsup"><span style="display: inline-block; position: relative; width: 1.383em; height: 0px;"><span style="position: absolute; clip: rect(3.036em, 1000em, 4.472em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Size1; vertical-align: 0em;" id="MathJax-Span-16" class="mo">∫<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.138em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.351em, 1000em, 4.273em, -1000em); top: -4.537em; left: 0.701em;"><span id="MathJax-Span-17" class="texatom"><span id="MathJax-Span-18" class="mrow"><span id="MathJax-Span-19" class="msubsup"><span style="display: inline-block; position: relative; width: 0.606em; height: 0px;"><span style="position: absolute; clip: rect(3.351em, 1000em, 4.174em, -1000em); top: -4.004em; left: 0em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-20" class="mi">b</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.898em; left: 0.303em;"><span style="font-size: 50%; font-family: MathJax_Main;" id="MathJax-Span-21" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.53em, 1000em, 4.273em, -1000em); top: -3.663em; left: 0.472em;"><span id="MathJax-Span-22" class="texatom"><span id="MathJax-Span-23" class="mrow"><span id="MathJax-Span-24" class="msubsup"><span style="display: inline-block; position: relative; width: 0.677em; height: 0px;"><span style="position: absolute; clip: rect(3.53em, 1000em, 4.174em, -1000em); top: -4.004em; left: 0em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-25" class="mi">a</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.898em; left: 0.374em;"><span style="font-size: 50%; font-family: MathJax_Main;" id="MathJax-Span-26" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-27" class="mo">⋯</span><span style="padding-left: 0.167em;" id="MathJax-Span-28" class="msubsup"><span style="display: inline-block; position: relative; width: 1.394em; height: 0px;"><span style="position: absolute; clip: rect(3.036em, 1000em, 4.472em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Size1; vertical-align: 0em;" id="MathJax-Span-29" class="mo">∫<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.138em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.351em, 1000em, 4.278em, -1000em); top: -4.537em; left: 0.701em;"><span id="MathJax-Span-30" class="texatom"><span id="MathJax-Span-31" class="mrow"><span id="MathJax-Span-32" class="msubsup"><span style="display: inline-block; position: relative; width: 0.618em; height: 0px;"><span style="position: absolute; clip: rect(3.351em, 1000em, 4.174em, -1000em); top: -4.004em; left: 0em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-33" class="mi">b</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.898em; left: 0.303em;"><span style="font-size: 50%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-34" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.53em, 1000em, 4.278em, -1000em); top: -3.663em; left: 0.472em;"><span id="MathJax-Span-35" class="texatom"><span id="MathJax-Span-36" class="mrow"><span id="MathJax-Span-37" class="msubsup"><span style="display: inline-block; position: relative; width: 0.689em; height: 0px;"><span style="position: absolute; clip: rect(3.53em, 1000em, 4.174em, -1000em); top: -4.004em; left: 0em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-38" class="mi">a</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.898em; left: 0.374em;"><span style="font-size: 50%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-39" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Math; font-style: italic; padding-left: 0.167em;" id="MathJax-Span-40" class="mi">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-41" class="mo">(</span><span id="MathJax-Span-42" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-43" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-44" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-45" class="mo">,</span><span style="padding-left: 0.167em;" id="MathJax-Span-46" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-47" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-48" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-49" class="mo">,</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-50" class="mo">…</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-51" class="mo">,</span><span style="padding-left: 0.167em;" id="MathJax-Span-52" class="msubsup"><span style="display: inline-block; position: relative; width: 1.017em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-53" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-54" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-55" class="mo">)</span><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-56" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span id="MathJax-Span-57" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-58" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-59" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-60" class="mtext">&nbsp;</span><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-61" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span id="MathJax-Span-62" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-63" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-64" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-65" class="mtext">&nbsp;</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-66" class="mo">⋯</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-67" class="mtext">&nbsp;</span><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-68" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span id="MathJax-Span-69" class="msubsup"><span style="display: inline-block; position: relative; width: 1.017em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-70" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-71" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.652em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 2.09em; vertical-align: -0.668em;"></span></span></nobr></span><script id="MathJax-Element-1" type="math/tex">\int_{a_1}^{b_1} \int_{a_2}^{b_2} \cdots \int_{a_d}^{b_d} g(x_1,x_2,\ldots,x_d) dx_1~dx_2~\cdots~dx_d</script></span></p>
+<p>over a rectangular region in <span class="math"><span style="color: inherit;" class="MathJax_Preview"></span><span style="" id="MathJax-Element-2-Frame" class="MathJax"><nobr><span style="width: 0.732em; display: inline-block;" role="math" id="MathJax-Span-72" class="math"><span style="display: inline-block; position: relative; width: 0.541em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.579em, 1000em, 2.607em, -1000em); top: -2.435em; left: 0em;"><span id="MathJax-Span-73" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-74" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.435em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.072em; vertical-align: -0.085em;"></span></span></nobr></span><script id="MathJax-Element-2" type="math/tex">d</script></span> space dimensions.  The Monte
+Carlo approximation to the integral is given by</p>
+<p><span class="math"><span style="color: inherit;" class="MathJax_Preview"></span><span style="" id="MathJax-Element-3-Frame" class="MathJax"><nobr><span style="width: 14.804em; display: inline-block;" role="math" id="MathJax-Span-75" class="math"><span style="display: inline-block; position: relative; width: 11.201em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.438em, 1000em, 3.208em, -1000em); top: -2.652em; left: 0em;"><span id="MathJax-Span-76" class="mrow"><span id="MathJax-Span-77" class="mfrac"><span style="display: inline-block; position: relative; width: 0.748em; height: 0px; margin-right: 0.12em; margin-left: 0.12em;"><span style="position: absolute; clip: rect(3.359em, 1000em, 4.182em, -1000em); top: -4.431em; left: 50%; margin-left: -0.272em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-78" class="mi">V<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.132em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.359em, 1000em, 4.167em, -1000em); top: -3.61em; left: 50%; margin-left: -0.314em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-79" class="mi">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(0.852em, 1000em, 1.245em, -1000em); top: -1.302em; left: 0em;"><span style="border-left: 0.748em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.25px; vertical-align: 0em;"></span><span style="display: inline-block; width: 0px; height: 1.082em;"></span></span></span></span><span style="padding-left: 0.167em;" id="MathJax-Span-80" class="munderover"><span style="display: inline-block; position: relative; width: 1.759em; height: 0px;"><span style="position: absolute; clip: rect(3.092em, 1000em, 4.417em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Size1; vertical-align: 0em;" id="MathJax-Span-81" class="mo">∑</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.359em, 1000em, 4.167em, -1000em); top: -4.481em; left: 1.056em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-82" class="mi">N<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.06em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -3.719em; left: 1.056em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-83" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Math; font-style: italic; padding-left: 0.167em;" id="MathJax-Span-84" class="mi">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-85" class="mo">(</span><span id="MathJax-Span-86" class="msubsup"><span style="display: inline-block; position: relative; width: 1.409em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-87" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.312em, 1000em, 4.343em, -1000em); top: -4.526em; left: 0.572em;"><span id="MathJax-Span-88" class="texatom"><span id="MathJax-Span-89" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-90" class="mo">[</span><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-91" class="mi">k</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-92" class="mo">]</span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -3.698em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-93" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-94" class="mo">,</span><span style="padding-left: 0.167em;" id="MathJax-Span-95" class="msubsup"><span style="display: inline-block; position: relative; width: 1.409em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-96" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.312em, 1000em, 4.343em, -1000em); top: -4.526em; left: 0.572em;"><span id="MathJax-Span-97" class="texatom"><span id="MathJax-Span-98" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-99" class="mo">[</span><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-100" class="mi">k</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-101" class="mo">]</span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -3.698em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-102" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-103" class="mo">,</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-104" class="mo">…</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-105" class="mo">,</span><span style="padding-left: 0.167em;" id="MathJax-Span-106" class="msubsup"><span style="display: inline-block; position: relative; width: 1.409em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-107" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.312em, 1000em, 4.343em, -1000em); top: -4.526em; left: 0.572em;"><span id="MathJax-Span-108" class="texatom"><span id="MathJax-Span-109" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-110" class="mo">[</span><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-111" class="mi">k</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-112" class="mo">]</span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.351em, 1000em, 4.174em, -1000em); top: -3.678em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-113" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-114" class="mo">)</span></span><span style="display: inline-block; width: 0px; height: 2.652em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 2.052em; vertical-align: -0.592em;"></span></span></nobr></span><script id="MathJax-Element-3" type="math/tex">\frac V N \sum_1^N g(x_1^{[k]},x_2^{[k]},\ldots,x_d^{[k]})</script></span></p>
+<p>where <span class="math"><span style="color: inherit;" class="MathJax_Preview"></span><span style="" id="MathJax-Element-4-Frame" class="MathJax"><nobr><span style="width: 10.089em; display: inline-block;" role="math" id="MathJax-Span-115" class="math"><span style="display: inline-block; position: relative; width: 7.63em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.438em, 1000em, 3.147em, -1000em); top: -2.652em; left: 0em;"><span id="MathJax-Span-116" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-117" class="mo">(</span><span id="MathJax-Span-118" class="msubsup"><span style="display: inline-block; position: relative; width: 1.409em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-119" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.312em, 1000em, 4.343em, -1000em); top: -4.526em; left: 0.572em;"><span id="MathJax-Span-120" class="texatom"><span id="MathJax-Span-121" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-122" class="mo">[</span><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-123" class="mi">k</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-124" class="mo">]</span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -3.698em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-125" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-126" class="mo">,</span><span style="padding-left: 0.167em;" id="MathJax-Span-127" class="msubsup"><span style="display: inline-block; position: relative; width: 1.409em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-128" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.312em, 1000em, 4.343em, -1000em); top: -4.526em; left: 0.572em;"><span id="MathJax-Span-129" class="texatom"><span id="MathJax-Span-130" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-131" class="mo">[</span><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-132" class="mi">k</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-133" class="mo">]</span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -3.698em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-134" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-135" class="mo">,</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-136" class="mo">…</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-137" class="mo">,</span><span style="padding-left: 0.167em;" id="MathJax-Span-138" class="msubsup"><span style="display: inline-block; position: relative; width: 1.409em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-139" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.312em, 1000em, 4.343em, -1000em); top: -4.526em; left: 0.572em;"><span id="MathJax-Span-140" class="texatom"><span id="MathJax-Span-141" class="mrow"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-142" class="mo">[</span><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-143" class="mi">k</span><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-144" class="mo">]</span></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.351em, 1000em, 4.174em, -1000em); top: -3.678em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-145" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-146" class="mo">)</span></span><span style="display: inline-block; width: 0px; height: 2.652em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.971em; vertical-align: -0.511em;"></span></span></nobr></span><script id="MathJax-Element-4" type="math/tex">(x_1^{[k]},x_2^{[k]},\ldots,x_d^{[k]})</script></span> is the k’th
+random point and <span class="math"><span style="color: inherit;" class="MathJax_Preview"></span><span style="" id="MathJax-Element-5-Frame" class="MathJax"><nobr><span style="width: 19.804em; display: inline-block;" role="math" id="MathJax-Span-147" class="math"><span style="display: inline-block; position: relative; width: 14.989em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.739em, 1000em, 3.064em, -1000em); top: -2.652em; left: 0em;"><span id="MathJax-Span-148" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-149" class="mi">V<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.186em;"></span></span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-150" class="mo">=</span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-151" class="mo">(</span><span id="MathJax-Span-152" class="msubsup"><span style="display: inline-block; position: relative; width: 0.858em; height: 0px;"><span style="position: absolute; clip: rect(3.148em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-153" class="mi">b</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.429em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-154" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-155" class="mo">−</span><span style="padding-left: 0.222em;" id="MathJax-Span-156" class="msubsup"><span style="display: inline-block; position: relative; width: 0.958em; height: 0px;"><span style="position: absolute; clip: rect(3.401em, 1000em, 4.177em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-157" class="mi">a</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.529em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-158" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-159" class="mo">)</span><span style="font-family: MathJax_Main;" id="MathJax-Span-160" class="mo">(</span><span id="MathJax-Span-161" class="msubsup"><span style="display: inline-block; position: relative; width: 0.858em; height: 0px;"><span style="position: absolute; clip: rect(3.148em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-162" class="mi">b</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.429em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-163" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-164" class="mo">−</span><span style="padding-left: 0.222em;" id="MathJax-Span-165" class="msubsup"><span style="display: inline-block; position: relative; width: 0.958em; height: 0px;"><span style="position: absolute; clip: rect(3.401em, 1000em, 4.177em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-166" class="mi">a</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.529em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-167" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-168" class="mo">)</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-169" class="mo">⋯</span><span style="font-family: MathJax_Main; padding-left: 0.167em;" id="MathJax-Span-170" class="mo">(</span><span id="MathJax-Span-171" class="msubsup"><span style="display: inline-block; position: relative; width: 0.874em; height: 0px;"><span style="position: absolute; clip: rect(3.148em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-172" class="mi">b</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.429em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-173" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-174" class="mo">−</span><span style="padding-left: 0.222em;" id="MathJax-Span-175" class="msubsup"><span style="display: inline-block; position: relative; width: 0.974em; height: 0px;"><span style="position: absolute; clip: rect(3.401em, 1000em, 4.177em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-176" class="mi">a</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.529em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-177" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-178" class="mo">)</span></span><span style="display: inline-block; width: 0px; height: 2.652em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.463em; vertical-align: -0.401em;"></span></span></nobr></span><script id="MathJax-Element-5" type="math/tex">V = (b_1-a_1)(b_2-a_2)\cdots(b_d-a_d)</script></span> is the
+volume of the rectangular region of integration.</p>
+<p>The main program in <cite>test_quad_mc.f90</cite> is set up to experiment with a
+simple integral with varying number of Monte-Carlo points.</p>
+<p>What is missing is the module <cite>quadrature_mc.f90</cite>.  Create this module,
+containing a function <cite>quad_mc</cite> with the calling sequence:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">quad_mc</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">npoints</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>that returns a Monte Carlo approximation to the integral, where:</p>
+<ul class="simple">
+<li><cite>g</cite> is the function defining the integrand.  <cite>g</cite> takes two
+arguments <cite>x</cite> and <cite>ndim</cite>, where <cite>x</cite> is an array of length <cite>ndim</cite>,
+the number of dimensions we are integrating over.
+(See the example in the <cite>functions.f90</cite> module.)</li>
+<li><cite>a</cite> and <cite>b</cite> are arrays of length <cite>ndim</cite> that have the lower and upper
+limits of integration in each dimension.</li>
+<li><cite>ndim</cite> is the number of dimensions to integrate over.</li>
+<li><cite>npoints</cite> is the number of Monte Carlo samples to use.</li>
+</ul>
+<p>The random number generator should be called only once to generate all
+the points needed and then the function <cite>g</cite> evaluated at appropriate
+points.  Note that you will need <cite>npoints*ndim</cite> random numbers since
+each point <cite>x</cite> has <cite>ndim</cite> components.</p>
+<p>Allocate appropriate size arrays to manage this.</p>
+<p>Note that the function <span class="math"><span style="color: inherit;" class="MathJax_Preview"></span><span style="" id="MathJax-Element-6-Frame" class="MathJax"><nobr><span style="width: 2.446em; display: inline-block;" role="math" id="MathJax-Span-179" class="math"><span style="display: inline-block; position: relative; width: 1.84em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.739em, 1000em, 3.064em, -1000em); top: -2.652em; left: 0em;"><span id="MathJax-Span-180" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-181" class="mi">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-182" class="mo">(</span><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-183" class="mi">x</span><span style="font-family: MathJax_Main;" id="MathJax-Span-184" class="mo">)</span></span><span style="display: inline-block; width: 0px; height: 2.652em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.463em; vertical-align: -0.401em;"></span></span></nobr></span><script id="MathJax-Element-6" type="math/tex">g(x)</script></span> specified for this test is very
+simple so that the true solution can be easily computed in any number of
+dimensions.</p>
+<p><span class="math"><span style="color: inherit;" class="MathJax_Preview"></span><span style="" id="MathJax-Element-7-Frame" class="MathJax"><nobr><span style="width: 14.518em; display: inline-block;" role="math" id="MathJax-Span-185" class="math"><span style="display: inline-block; position: relative; width: 10.985em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.674em, 1000em, 3.147em, -1000em); top: -2.652em; left: 0em;"><span id="MathJax-Span-186" class="mrow"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-187" class="mi">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-188" class="mo">(</span><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-189" class="mi">x</span><span style="font-family: MathJax_Main;" id="MathJax-Span-190" class="mo">)</span><span style="font-family: MathJax_Main; padding-left: 0.278em;" id="MathJax-Span-191" class="mo">=</span><span style="padding-left: 0.278em;" id="MathJax-Span-192" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-193" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -4.349em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-194" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -3.698em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-195" class="mn">1</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-196" class="mo">+</span><span style="padding-left: 0.222em;" id="MathJax-Span-197" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-198" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -4.349em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-199" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -3.698em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-200" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-201" class="mo">+</span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-202" class="mo">⋯</span><span style="font-family: MathJax_Main; padding-left: 0.222em;" id="MathJax-Span-203" class="mo">+</span><span style="padding-left: 0.222em;" id="MathJax-Span-204" class="msubsup"><span style="display: inline-block; position: relative; width: 1.017em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-205" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.371em, 1000em, 4.167em, -1000em); top: -4.349em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-206" class="mn">2</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; clip: rect(3.351em, 1000em, 4.174em, -1000em); top: -3.678em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-207" class="mi">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.002em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.652em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.659em; vertical-align: -0.511em;"></span></span></nobr></span><script id="MathJax-Element-7" type="math/tex">g(x) = x_1^2 + x_2^2 + \cdots + x_d^2</script></span></p>
+<p>The test program in <cite>test_quad_mc.f90</cite> computes the exact integral of
+this over any rectangular region.  Convince yourself this is right.</p>
+<p>Once you have provided a suitable module as described above,
+running this code should give results like the following:</p>
+<div class="highlight-python"><pre>$ make plot
+gfortran  -c  random_util.f90
+gfortran  -c  functions.f90
+gfortran  -c  quadrature_mc.f90
+gfortran  -c  test_quad_mc.f90
+gfortran  random_util.o functions.o quadrature_mc.o test_quad_mc.o -o
+test.exe
+./test.exe
+Testing Monte Carlo quadrature in 20 dimensions
+True integral:   1.95734186666667E+08
+ seed1 for random number generator:       12345
+Final approximation to integral:   1.95728471073896E+08
+ Total g evaluations:      1310720
+ python plot_mc_quad_error.py</pre>
+</div>
+<p>A file <cite>mc_quad_error.txt</cite> should be created with the estimate of the
+integral computed with varying number of random points and the error
+in each.</p>
+<p>A plot of these results should also be created as <cite>mc_quad_error.png</cite>,
+that looks like this:</p>
+<img alt="_images/mc_quad_error.png" src="Final%20Project%20%E2%80%94%20Coursera%20Edition%201.0%20documentation_files/mc_quad_error.png" style="width: 10cm;">
+<p>The test problem is set up to estimate a 20-dimensional integral.
+Note that the relative error is plotted, which gives an indication
+of the number of correct digits.  (Note that the absolute error is about
+2e8 times larger for this problem!)</p>
+<p><em>Note:</em> This problem should be quite easy; the code needed for
+<cite>quad_mc</cite> should be short.  The main purpose of this problem is to
+illustrate the basic structure of such a code, which you can follow
+in the next problem.</p>
+</div></blockquote>
+<p><strong>PART 3</strong></p>
+<blockquote>
+<div><p>The sample program <cite>$UWHPSC/codes/project/part3/laplace_mc.py</cite>
+can be run from
+IPython to illustrate how a random walk on a lattice can be used to
+generate an approximate solution to the steady-state heat equation
+at a single point.  This is described in more detail in the section
+<a class="reference internal" href="http://faculty.washington.edu/rjl/uwhpsc-coursera/poisson.html#poisson-mc"><em>Monte Carlo methods for the steady state diffusion equation</em></a>.</p>
+<p>Note that there is a parameter <cite>plot_walk</cite> that is set to <cite>True</cite> for
+this demo.  If you set it to <cite>False</cite> and execute the code, then it will
+take many more walks and print out the approximations as it repeatedly
+doubles the number of walks taken.</p>
+<p>Using this as a model, write a Fortran code to approximate
+the solution to Laplace’s equation at a single point <span class="math"><span style="color: inherit;" class="MathJax_Preview"></span><span style="" id="MathJax-Element-8-Frame" class="MathJax"><nobr><span style="width: 4.161em; display: inline-block;" role="math" id="MathJax-Span-208" class="math"><span style="display: inline-block; position: relative; width: 3.139em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.739em, 1000em, 3.064em, -1000em); top: -2.652em; left: 0em;"><span id="MathJax-Span-209" class="mrow"><span style="font-family: MathJax_Main;" id="MathJax-Span-210" class="mo">(</span><span id="MathJax-Span-211" class="msubsup"><span style="display: inline-block; position: relative; width: 1.001em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.178em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-212" class="mi">x</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.572em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-213" class="mn">0</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-214" class="mo">,</span><span style="padding-left: 0.167em;" id="MathJax-Span-215" class="msubsup"><span style="display: inline-block; position: relative; width: 0.919em; height: 0px;"><span style="position: absolute; clip: rect(3.4em, 1000em, 4.372em, -1000em); top: -4.004em; left: 0em;"><span style="font-family: MathJax_Math; font-style: italic;" id="MathJax-Span-216" class="mi">y<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.006em;"></span></span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span><span style="position: absolute; top: -3.854em; left: 0.49em;"><span style="font-size: 70.7%; font-family: MathJax_Main;" id="MathJax-Span-217" class="mn">0</span><span style="display: inline-block; width: 0px; height: 4.004em;"></span></span></span></span><span style="font-family: MathJax_Main;" id="MathJax-Span-218" class="mo">)</span></span><span style="display: inline-block; width: 0px; height: 2.652em;"></span></span></span><span style="border-left: 0em solid; display: inline-block; overflow: hidden; width: 0px; height: 1.463em; vertical-align: -0.401em;"></span></span></nobr></span><script id="MathJax-Element-8" type="math/tex">(x_0,y_0)</script></span>
+using the random walk approach.</p>
+<p>The module <cite>$UWHPSC/codes/project/part3/problem_description.f90</cite>
+is a starting point.</p>
+<p>Supplement this with the following:</p>
+<ul class="simple">
+<li>A module <cite>mc_walk.f90</cite> containing two subroutines<ul>
+<li><cite>subroutine random_walk(i0, j0, max_steps, ub, iabort)</cite>
+based on the Python function <cite>random_walk</cite>.
+In the Fortran case <cite>ub</cite> should be an output variable with the
+value of u at the boundary point reached, in the case when the walk
+successfully reached the boundary.  In this case the subroutine
+should return <cite>iabort = 0</cite>. If the walk did not reach the
+boundary after <cite>max_steps</cite>, then <cite>ub</cite> can be anything, but
+return <cite>iabort = 1</cite> in this case.</li>
+<li><cite>subroutine many_walks(i0, j0, max_steps, n_mc, u_mc, n_success)</cite>
+based on the Python equivalent.  In this case <cite>u_mc</cite> should be an
+output variable with the average value of <cite>u</cite> on the boundary
+computed based on the successful walks, and <cite>n_success</cite> is an output
+variable telling how many were successful.</li>
+<li>Add a module variable <cite>nwalks</cite> to this module that is initialized to
+0 in the main program and incremented by one each time <cite>random_walk</cite>
+is called.</li>
+</ul>
+</li>
+<li>A main program named <cite>laplace_mc.f90</cite> that does something similar to
+the main program in the Python code.  In particular it should:<ul>
+<li>Set <cite>x0, y0, i0, j0, max_steps</cite> as in the Python.
+You should <cite>use</cite> what’s needed from the module
+<cite>problem_description.f90</cite>.</li>
+<li>Initialize the random number generator.  You can use the
+<cite>random_util.f90</cite> module from Part 2 for this.
+Set <cite>seed1 = 12345</cite>.</li>
+<li>Intialize <cite>nwalks = 0</cite> and print out at the end the value, which
+should be the total number of times <cite>random_walk</cite> was called.</li>
+<li>Call <cite>many_walks</cite> first with <cite>u_mc = 10</cite> and then have a loop to
+repeatedly double the number of samples and print out the
+estimate of <cite>u</cite> and the relative error after each doubling.</li>
+<li>In addition, it should write the total number of walks, the estimate of
+<cite>u</cite> and the relative error each doubling to a file named
+<cite>mc_laplace_error.txt</cite> with the same format as the file
+<cite>mc_quad_error.txt</cite> in Part 2.</li>
+</ul>
+</li>
+<li>A python script <cite>plot_mc_laplace_error.py</cite> based on the plotting
+script from Part 2 to produce a log-log plot of the results.</li>
+<li>A Makefile so that <cite>make plot</cite> will produce the <cite>png</cite> file.</li>
+</ul>
+<p>The Fortran code does not need to include an option for plotting the
+walks, that was just for demo purposes.</p>
+<p>Note that the main program and each subroutine will have to <cite>use</cite>
+various variables or subroutines from other modules.</p>
+<p><strong>Sample output</strong></p>
+<div class="highlight-python"><pre>$ make plot
+gfortran  -c  random_util.f90
+gfortran  -c  problem_description.f90
+gfortran  -c  mc_walk.f90
+gfortran  -c  laplace_mc.f90
+gfortran  random_util.o problem_description.o mc_walk.o laplace_mc.o -o
+test.exe
+./test.exe
+ seed1 for random number generator:       12345
+        10  0.377000000000000E+00   0.162222E+00
+        20  0.408125000000000E+00   0.930556E-01
+        40  0.452875000000000E+00   0.638889E-02
+        80  0.436125000000000E+00   0.308333E-01
+       160  0.440656250000000E+00   0.207639E-01
+       320  0.468687500000000E+00   0.415278E-01
+       640  0.460773437500000E+00   0.239410E-01
+      1280  0.455091796874999E+00   0.113151E-01
+      2560  0.455277343749997E+00   0.117274E-01
+      5120  0.455505371093748E+00   0.122342E-01
+     10240  0.456198974609378E+00   0.137755E-01
+     20480  0.454078369140635E+00   0.906304E-02
+     40960  0.450970458984394E+00   0.215658E-02
+Final approximation to u(x0,y0):   4.50970458984394E-01
+Total number of random walks:      40960
+python plot_mc_laplace_error.py</pre>
+</div>
+<p>Note that with <cite>max_steps = 100*max(nx,ny)</cite> all of the walks
+successfully reached the boundary.  You might try with a smaller
+value such as <cite>max_steps = 10</cite> in which case many walks will fail.
+In this case you might see results like the following
+(<em>Note that the original results shown here were incorrect!</em>)</p>
+<div class="highlight-python"><pre> seed1 for random number generator:       12345
+         4  0.697500000000000E+00   0.550000E+00
+         8  0.632500000000000E+00   0.405556E+00
+        17  0.608529411764706E+00   0.352288E+00
+        31  0.623548387096774E+00   0.385663E+00
+        71  0.622042253521127E+00   0.382316E+00
+       134  0.616623134328358E+00   0.370274E+00
+       268  0.623619402985075E+00   0.385821E+00
+       553  0.620099457504520E+00   0.377999E+00
+      1092  0.623298992673990E+00   0.385109E+00
+      2184  0.622995650183145E+00   0.384435E+00
+      4416  0.624125339673914E+00   0.386945E+00
+      8765  0.625060182544217E+00   0.389023E+00
+     17623  0.624690319468906E+00   0.388201E+00
+Final approximation to u(x0,y0):   6.24690319468906E-01
+Total number of random walks:      40960</pre>
+</div>
+<p>The total number of walks <cite>nwalks</cite> is the same, but fewer were used
+in each estimate of the solution.</p>
+<p>Note that the Fortran equivalent of <cite>floor</cite> is <cite>nint</cite>, e.g.
+<cite>i0 = nint((x0-ax)/dx)</cite> determines the index of the gridpoint in the
+<cite>x</cite> direction closest to the point <cite>x0</cite>.</p>
+</div></blockquote>
+<p><strong>PART 4</strong></p>
+<blockquote>
+<div><p>Parallelize the code from Part 3 using MPI.
+Do this as follows:</p>
+<ul>
+<li><p class="first">Modify the main program to call <cite>MPI_INIT</cite> and <cite>MPI_FINALIZE</cite>.
+Note that with MPI, we must call <cite>MPI_INIT</cite> as the first statement in
+the main program, so every process is running the same code, and
+every process will call the subroutine <cite>many_walks</cite>.
+See <cite>$UWHPSC/codes/mpi/quadrature</cite> for an example of how Simpson’s
+method might be implemented in MPI.</p>
+</li>
+<li><p class="first">In the main program, use:</p>
+<div class="highlight-python"><pre>seed1 = 12345
+seed1 = seed1 + 97*proc_num  ! unique for each process
+call init_random_seed(seed1)</pre>
+</div>
+<p>so that each process will generate a unique set of random numbers.</p>
+</li>
+<li><p class="first">Modify subroutine <cite>many_walks</cite> so that Process 0 is the master
+whose job is to farm out all of the <cite>n_mc</cite> walks requested
+to each of the other processes.  Follow the master-worker paradigm for
+this.  This is a sensible way to try to do load balancing since some
+walks will take many more steps than others.  (It would be better to
+ask each worker to do some number of walks greater than 1 each time so
+that there is less communication, but let’s keep it simple.)</p>
+<p>Note that the master does not have to send any data to a worker,
+just an empty message requesting another walk, so it could send
+<cite>MPI_BOTTOM</cite> and use <cite>tag = 1</cite> to indicate this is a request for
+another walk.  Use <cite>tag = 0</cite> to indicate to a worker that it is done.</p>
+<p>The worker will have to receive from the master with <cite>MPI_ANY_TAG</cite> and
+then check <cite>status(MPI_TAG)</cite> to see what it needs to do.</p>
+<p>If another walk is requested, the worker should call <cite>random_walk</cite> and
+then send back to the Master the result as a single data value of type
+<cite>MPI_DOUBLE_PRECISION</cite>.   For this message set the <cite>tag</cite> to the value
+of <cite>iabort</cite> that was returned from the call to <cite>random_walk</cite> so that
+the Master knows whether to include this walk in the accumulated
+Monte Carlo result.</p>
+</li>
+<li><p class="first">Recall that with MPI every process is executing the same code but that
+all data is local to a process.   So the basic structure of the main
+program can remain the same.  Every process will execute the loop that
+repeatedly increases the size of <cite>n_mc</cite> and every process will call
+<cite>many_walks</cite>.  But only the master process will return values of
+<cite>u_mc</cite> and <cite>n_success</cite> that are sensible, and so this process should
+update <cite>u_mc_total</cite> and print out the values to the screen and the file
+<cite>mc_laplace_error.txt</cite>.</p>
+</li>
+<li><p class="first">The module variable
+<cite>nwalks</cite> that is incremented in <cite>random_walk</cite> will be local to each
+process. In the main program, at the end have each process print out how
+many walks it took and use <cite>MPI_REDUCE</cite> to compute the total number of
+walks taken by all processes and have Process 0 print this value.</p>
+</li>
+<li><p class="first">Create a <cite>Makefile</cite> that works for this by combining aspects of those
+from Part 1 (for MPI) and Part 3 (for the targets needed).</p>
+</li>
+</ul>
+<p><strong>Sample output</strong></p>
+<div class="highlight-python"><pre>$ make plot
+mpif90  -c  random_util.f90
+mpif90  -c  problem_description.f90
+mpif90  -c  mc_walk.f90
+mpif90  -c  laplace_mc.f90
+mpif90   random_util.o problem_description.o mc_walk.o laplace_mc.o -o
+test.exe
+mpiexec -n 4    test.exe
+ seed1 for random number generator:       12442
+ seed1 for random number generator:       12539
+ seed1 for random number generator:       12636
+ seed1 for random number generator:       12345
+        10  0.516750000000000E+00   0.148333E+00
+        20  0.478500000000000E+00   0.633333E-01
+        40  0.425437500000000E+00   0.545833E-01
+        80  0.431562500000000E+00   0.409722E-01
+       160  0.431593750000000E+00   0.409028E-01
+       320  0.425703125000000E+00   0.539931E-01
+       640  0.426492187500000E+00   0.522396E-01
+      1280  0.427759765624999E+00   0.494227E-01
+      2560  0.430487304687498E+00   0.433615E-01
+      5120  0.443433105468749E+00   0.145931E-01
+     10240  0.449190429687505E+00   0.179905E-02
+     20480  0.449556518554698E+00   0.985514E-03
+     40960  0.451413696289083E+00   0.314155E-02
+Final approximation to u(x0,y0):   4.51413696289083E-01
+Total walks performed by all processes:      40960
+Walks performed by Process  0:          0
+Walks performed by Process  1:      12928
+Walks performed by Process  2:      13414
+Walks performed by Process  3:      14618
+python plot_mc_laplace_error.py</pre>
+</div>
+</div></blockquote>
+<div class="section" id="when-finished">
+<h2>When finished<a class="headerlink" href="#when-finished" title="Permalink to this headline">¶</a></h2>
+<p>Your project directory should contain:</p>
+<ul class="simple">
+<li>part1/functions.f90</li>
+<li>part1/quadrature.f90</li>
+<li>part1/test3.f90</li>
+<li>part1/Makefile</li>
+<li>part2/functions.f90</li>
+<li>part2/quadrature_mc.f90</li>
+<li>part2/random_util.f90</li>
+<li>part2/test_quad_mc.f90</li>
+<li>part2/plot_mc_quad_error.py</li>
+<li>part2/Makefile</li>
+<li>part3/problem_description.f90</li>
+<li>part3/laplace_mc.f90</li>
+<li>part3/mc_walk.f90</li>
+<li>part3/random_util.f90</li>
+<li>part3/plot_mc_laplace_error.py</li>
+<li>part3/Makefile</li>
+<li>part4/problem_description.f90</li>
+<li>part4/laplace_mc.f90</li>
+<li>part4/mc_walk.f90</li>
+<li>part4/random_util.f90</li>
+<li>part4/plot_mc_laplace_error.py</li>
+<li>part4/Makefile</li>
+</ul>
+<p>Congratulations, you have completed the assignments for this course!</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="http://faculty.washington.edu/rjl/uwhpsc-coursera/genindex.html" title="General Index">index</a></li>
+        <li><a href="http://faculty.washington.edu/rjl/uwhpsc-coursera/index.html"><font color="#39275b">Contents</font></a>|&nbsp;</li>
+        <li><a href="http://faculty.washington.edu/rjl/uwhpsc-coursera/biblio.html"><font color="#39275b">Bibliography</font></a>|&nbsp;</li>
+
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        © Copyright 2013, Randall J. LeVeque, CC BY.
+      Last updated on Jun 20, 2013.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Size4,sans-serif;" id="MathJax_Font_Test"></div></div></body></html>
