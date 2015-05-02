@@ -32,6 +32,7 @@ program copyvalue2
     call mpi_recv(val, 1, MPI_INTEGER, proc_num+1, 21, MPI_COMM_WORLD, status, ierr)
 
     print '("Processor, " i3, " receives value = ", i3)', proc_num, val
+    val = val - 1
     print '("Processor, " i3, " sends    value = ", i3)', proc_num, val
 
     ! for process 2, send to 1. process 1, send to 0
