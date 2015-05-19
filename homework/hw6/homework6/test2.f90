@@ -1,4 +1,4 @@
-! $MYHPSC/homework/hw6/homework6/test.f90
+! $MYHPSC/homework/hw6/homework6/test2.f90
 ! I believe the goal for this second part, 
 ! will be to divy up the function so that each
 ! process will compute a different portion
@@ -79,11 +79,10 @@ program test2
       int_sub = trapezoid(f,ab_sub(1),ab_sub(2),n)
       call MPI_SEND(int_sub, 1, MPI_DOUBLE_PRECISION, 0, j, &
                   MPI_COMM_WORLD, ierr)
-
-      ! print the number of function evaluations by each thread:
-      print '("fevals by Process ",i2,": ",i13)',  proc_num, fevals_proc
-
     endif
+
+    ! print the number of function evaluations by each thread:
+    print '("fevals by Process ",i2,": ",i13)',  proc_num, fevals_proc
 
     call MPI_REDUCE(fevals_proc, fevals_total, 1, MPI_INTEGER, MPI_SUM, 0, MPI_COMM_WORLD, ierr)
     if (proc_num==0) then
