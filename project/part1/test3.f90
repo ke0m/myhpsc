@@ -19,6 +19,11 @@ program test3
 
     call MPI_INIT(ierr)
     call MPI_COMM_SIZE(MPI_COMM_WORLD, num_procs, ierr)
+    if(num_procs < 2) then
+      print *, "*** Error: need to use at least two processes"
+      call MPI_FINALIZE(ierr)
+      stop
+    endif
     call MPI_COMM_RANK(MPI_COMM_WORLD, proc_num, ierr)
 
     ! All processes set these values so we don't have to broadcast:
