@@ -1,6 +1,6 @@
 ! $MYHPSC/homework/hw6/homework6/test2.f90
 
-! I need to consider the case that num_procs==0
+! I need to consider the case that num_procs==1
 
 program test3
 
@@ -21,8 +21,6 @@ program test3
     call MPI_COMM_SIZE(MPI_COMM_WORLD, num_procs, ierr)
     call MPI_COMM_RANK(MPI_COMM_WORLD, proc_num, ierr)
 
-    nsub = num_procs-1 
-
     ! All processes set these values so we don't have to broadcast:
     k = 1.d3   ! functions module variable 
     a = 0.d0
@@ -37,40 +35,47 @@ program test3
     ! When this is equal to the number of subintervals
     ! then, we can stop
 
+
+    if (proc_num==0) then
+      num_sent = 0
+      print '("Using ",i3," processes")', num_procs
+      print *, "How many subintervals?"
+      read *, nsub
+      print '("true integral: ", es22.14)', int_true
+      print *, " "  ! blank line
+    endif
+   
+    call MPI_BCAST(nsub, 1, MPI_INTEGER, 0 , MPI_COMM_WORLD, ierr)
+
+    if(proc_num > nsub) go to 99
+
     ! ------------------------------
     ! Code for master processor (0)
     ! ------------------------------
+    if(proc_num==0) then
+      
+      dx_sub = (b-a) / nsub
 
-    if (proc_num==0) then
-        num_sent = 0
-        print '("Using ",i3," processes")', num_procs
-        print *, "How many subintervals?"
-        read *, nsub
-        print '("true integral: ", es22.14)', int_true
-        print *, " "  ! blank line
-
-        dx_sub = (b-a) / nsub
-
-        ! The master sends out different endpoints to each processor
-        ! Get the first batch out to get the processors working
-        do j=1,min(num_procs-1, nsub)
-          ab_sub(1) = a + (j-1)*dx_sub
-          ab_sub(2) = a + j*dx_sub
-          call MPI_SEND(ab_sub, 2, MPI_DOUBLE_PRECISION, j, j, &
-                        MPI_COMM_WORLD, ierr)
-          if (debug) then
-            print '("+++ Process ", i4, ", sent message to  process", i6," with tag", i6)', proc_num, j, j
-          endif
-
-          num_sent = num_sent + 1
-        enddo
+      ! The master sends out different endpoints to each processor
+      ! Get the first batch out to get the processors working
+      do j=1,min(num_procs-1, nsub)
+        ab_sub(1) = a + (j-1)*dx_sub
+        ab_sub(2) = a + j*dx_sub
+        call MPI_SEND(ab_sub, 2, MPI_DOUBLE_PRECISION, j, j, &
+                      MPI_COMM_WORLD, ierr)
+        if (debug) then
+          print '("+++ Process ", i4, ", sent message to  process", i6," with tag", i6)', proc_num, j, j
+        endif
+        
+        num_sent = num_sent + 1
+      enddo
 
         ! In this block of code, we want to get the answers back
         ! and if there are more to be sent out, then send the rest out
         ! if not, end the program
         do j=1,nsub
           call MPI_RECV(int_sub, 1, MPI_DOUBLE_PRECISION, MPI_ANY_TAG, &
-                           MPI_ANY_SOURCE, MPI_COMM_WORLD, status, ierr)
+                           MPI_ANY_SOURCE, MPI_COMM_WORLD, status, ierr) ! MPI_ANY_TAG means they can come in any order
 
           int_approx = int_approx + int_sub
           sender = status(MPI_SOURCE)
@@ -109,7 +114,8 @@ program test3
 
     if (proc_num /= 0) then
 
-      if (proc_num > nsub) go to 99
+      !if (proc_num > nsub) go to 99
+      !print *, "Process number first, nsub: ", proc_num, nsub
 
       do while(.true.)
         call MPI_RECV(ab_sub, 2, MPI_DOUBLE_PRECISION, 0, MPI_ANY_TAG, &
@@ -121,6 +127,10 @@ program test3
         endif
 
         if(j==0) go to 99 ! received done message
+        !if(j==0) then
+        !  print *, "Process number: ", proc_num
+        !  call MPI_FINALIZE(ierr)
+        !endif
 
         int_sub = trapezoid(f,ab_sub(1),ab_sub(2),n)
 
@@ -133,14 +143,14 @@ program test3
       enddo
     endif
 
+
+
 ! What is odd is that process 0 is printing from here.
 ! It should never get here
 ! And also, where is process 3? For num_procs=4 and nsub=2, it should come here
 99 continue
-    ! print the number of function evaluations by each thread:
+   ! print the number of function evaluations by each thread:
     print '("fevals by Process ",i2,": ",i13)',  proc_num, fevals_proc
-    call MPI_FINALIZE(ierr)
-
 
     call MPI_REDUCE(fevals_proc, fevals_total, 1, MPI_INTEGER, MPI_SUM, 0, MPI_COMM_WORLD, ierr)
     if (proc_num==0) then
@@ -149,5 +159,6 @@ program test3
     endif
 
     call MPI_FINALIZE(ierr)
+
 
 end program test3
