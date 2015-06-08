@@ -24,7 +24,7 @@ real(kind=8) function quad_mc(g, a, b, ndim, npoints)
 	! How does it work?
 	! I beleive Monte Carlo integration works by approximating
 	! the integral instead of using preselected points to approximate
-	! the function (piece-wise for mdipoint, linear for trapezoid, etc.)
+	! the function (piece-wise for midpoint, linear for trapezoid, etc.)
 	! it uses a random number generator to randomly create points over
 	! which the integral will be approximated
 
@@ -35,10 +35,10 @@ real(kind=8) function quad_mc(g, a, b, ndim, npoints)
 	integer, intent(in) :: ndim, npoints
 
 	! Function variables/arrays
-	! Do I need to set boundaries on the values of these
-	! random numbers?
-	real(kind=4), allocatable :: x_total(:)
-	real(kind=4) :: x(ndim)
+	! Boundaries are required for the random numbers
+	! as we are integrating over specified limits (a,b)
+	real(kind=8), allocatable :: x_total(:)
+	real(kind=8) :: x(ndim)
 	integer :: i, j
 	real(kind=8) :: g_total, v
 
@@ -46,25 +46,21 @@ real(kind=8) function quad_mc(g, a, b, ndim, npoints)
 	g_total = 0.d0
 	v = 1
 	allocate(x_total(ndim*npoints))
-	call random_number(x_total)
+	call random_number(x_total) ! Only to be called once
 
-	!print *, "x_total: ", x_total
-
-	! 1-20, 21-40, 41-60, because ndim=20 for this case
+	! Slices the x_total array in order for each point
+	! to get the ndim values in order to evaluate
+	! g. Remember that the goal is find the sum of the 
+	! evaluations of g npoints times. 
 	do i=1,npoints
 		x = a + x_total(j:j+(ndim-1))*(b-a)
 		g_total = g_total + g(x,ndim)
 		j = j + ndim
-		!print *, "i= ", i
 		enddo
 
-	do i=1,ndim 
-		v = v*(b(i)-a(i))
-		enddo
+	v = product(b-a)
 
 	quad_mc = (v/npoints)*g_total
-
-	print *, "V, quad_mc", v, quad_mc
 
 end function quad_mc
 
