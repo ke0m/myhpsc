@@ -1,5 +1,5 @@
 
-OBJECTS = random_util.o functions.o quadrature_mc.o test_quad_mc.o
+OBJECTS = random_util.o problem_description.o mc_walk.o laplace_mc.o
 FFLAGS = 
 
 .PHONY: test plot clean clobber
@@ -16,8 +16,8 @@ test.exe: $(OBJECTS)
 mc_quad_error.txt: test.exe
 	./test.exe
 
-plot: mc_quad_error.txt
-	python plot_mc_quad_error.py
+plot: mc_laplace_error.txt
+	python plot_mc_laplace_error.py
 
 clean:
 	rm -f *.o *.exe *.mod
