@@ -7,11 +7,14 @@ program laplace_mc
 	use random_util, only: init_random_seed
 
 	implicit none
-	real(kind=8) :: x0, y0, u_true, u_mc, error
-	integer :: i0, j0, seed1, max_steps, n_mc, n_sucesses
+	real(kind=8) :: x0, y0, u_true, u_mc, error, u_mc_total, u_sum_old, u_sum_new
+	integer :: i0, j0, seed1, max_steps, n_mc, n_sucesses, n_total, i
 
 	! Do not forget to include the write statement at the end
 	open(unit=25, file='mc_laplace_error.txt', status='unknown')
+
+	! Initialization
+	u_mc_total = 0.d0
 
 	! Try it out from a specific (x0,y0): 
 	x0 = 0.9
@@ -38,10 +41,28 @@ program laplace_mc
 
 	call many_walks(i0,j0,max_steps,n_mc,u_mc,n_sucesses)
 
-	! I am not sure if this should be computed here.
-	! I am thinking of including a print_table subroutine
-	! similar to what I did earlier with an omp quadrature
-	! program
 	error = abs((u_mc-u_true)/u_true)
+
+	! Printing results
+	print 11, n_mc, u_mc, error
+	11 format(i8, es22.14,es22.7)
+
+	! Start accumulating totals
+	u_mc_total = u_mc
+	n_total = n_sucesses
+
+	do i=1,12
+		u_sum_old = u_mc_total*n_total
+		call many_walks(i0,j0,max_steps,n_mc,u_mc,n_sucesses)
+		u_sum_new = u_mc * n_sucesses
+		n_total = n_total + n_sucesses
+		u_mc_total = (u_sum_old + u_sum_new) / n_total
+		error = abs((u_mc-u_true)/u_true)
+
+		print 11, n_mc, u_mc, error
+		11 format(i8, es22.14,es22.7)
+
+		n_mc = 2*n_mc ! double number of trials for next iteration
+		enddo
 
 end program laplace_mc
